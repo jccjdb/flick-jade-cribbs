@@ -11,7 +11,6 @@ class EnrollmentsController < ApplicationController
         source: params[:stripeToken]
       )
 
-      current_user.enrollments.create(course: current_course)
       charge = Stripe::Charge.create(
         customer: customer.id,
         amount: @amount,
